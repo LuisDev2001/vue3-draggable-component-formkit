@@ -1,39 +1,43 @@
 # vue3-draggable-component-formkit
 
-This template should help get you started developing with Vue 3 in Vite.
+El componente que se ha creado es una implementación de un sistema de arrastrar y soltar en Vue 3, utilizando el composable `useDragAndDrop` de FormKit. Este componente te permite crear interfaces de usuario interactivas donde los elementos se pueden reordenar arrastrándolos y soltándolos en diferentes ubicaciones.
 
-## Recommended IDE Setup
+## Características Principales
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Arrastrar y Soltar:** Permite a los usuarios arrastrar elementos de la interfaz y soltarlos en diferentes áreas de la misma.
+  
+- **Reordenamiento de Elementos:** Facilita el reordenamiento de elementos al arrastrarlos y soltarlos en diferentes posiciones dentro de una lista o contenedor.
 
-## Type Support for `.vue` Imports in TS
+## Integración con Vue 3 y Vite
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Este componente está diseñado para ser utilizado con Vue 3 y Vite, lo que te proporciona una experiencia de desarrollo rápida y eficiente. Puedes aprovechar las últimas características de Vue 3 junto con la rapidez de Vite para desarrollar aplicaciones web modernas e interactivas.
 
-## Customize configuration
+## Documentación Adicional
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Para obtener más información sobre cómo utilizar el composable `useDragAndDrop` y personalizar el comportamiento del arrastrar y soltar en tu aplicación Vue 3, consulta la documentación de FormKit y los ejemplos de código proporcionados. Además, asegúrate de explorar las opciones de configuración y las capacidades avanzadas del composable para adaptarlo a tus necesidades específicas de desarrollo.
+
+¡Espero que esta descripción te haya ayudado a comprender mejor el componente que has creado y cómo puedes utilizarlo en tus proyectos Vue 3! Si tienes alguna pregunta adicional o necesitas más ayuda, no dudes en preguntar.
 
 ## Project Setup
 
 ```sh
-npm install
+yarn
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 ### Type-Check, Compile and Minify for Production
 
 ```sh
-npm run build
+yarn build
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-npm run lint
+yarn lint
 ```
