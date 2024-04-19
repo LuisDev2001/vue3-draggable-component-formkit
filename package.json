@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@formkit/drag-and-drop": "^0.0.38",
-    "vue": "^3.4.23"
+    "vue": "^3.4.23",
+    "vue-draggable-plus": "^0.4.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",

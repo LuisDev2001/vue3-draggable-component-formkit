@@ -2306,6 +2306,11 @@ vite@^5.2.8:
   optionalDependencies:
     fsevents "~2.3.3"
 
+vue-draggable-plus@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/vue-draggable-plus/-/vue-draggable-plus-0.4.0.tgz#97923a1b9a53d004889f7acb972d828eee6bcaa9"
+  integrity sha512-CcvSopMmSZY9McCdQ56QsAydT5cZilx9LzLU0UIz6KDYe9ll6QnmNHN80t6wnxN402ZECSXc5X1dm/myiMFi+A==
+
 vue-eslint-parser@^9.3.1, vue-eslint-parser@^9.4.2:
   version "9.4.2"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-9.4.2.tgz#02ffcce82042b082292f2d1672514615f0d95b6d"

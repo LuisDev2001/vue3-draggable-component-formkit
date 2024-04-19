@@ -1,7 +1,8 @@
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script setup lang="ts">
   import { ref } from 'vue'
-  import DraggableFormKit from './components/DraggableFormKit.vue'
+  import { VueDraggable } from 'vue-draggable-plus'
+  // import DraggableFormKit from './components/DraggableFormKit.vue'
   import DraggIcon from './components/DraggIcon.vue'
 
   const data = ref([
@@ -40,7 +41,7 @@
       key: 2,
       value: {
         name: 'Section 2',
-        order: 1,
+        order: 2,
         questions: [
           {
             key: 1,
@@ -69,7 +70,7 @@
   ])
 
   const handleAddSection = () => {
-    data.value.push({
+    data.value = [...data.value, {
       key: data.value.length + 1,
       value: {
         name: `Section ${data.value.length + 1}`,
@@ -98,7 +99,7 @@
           },
         ]
       }
-    },)
+    }]
   }
 
   const handleAddQuestion = (section: any) => {
@@ -110,25 +111,19 @@
       }
     })
   }
-
-  const handleUpdateListSections = (list: any) => {
-    data.value = list
-  }
-
-  const handleUpdateListQuestions = (questionsUpdate: any, section: any) => {
-    section.questions = questionsUpdate
-  }
 </script>
 
 <template>
   <main>
-    <DraggableFormKit
+    <VueDraggable
+      v-model="data"
       class="draggable-zone"
-      :list="data"
-      handle=".handle-section"
-      @update-list="handleUpdateListSections"
+      :animation="500"
     >
-      <template #item="{ item: section }">
+      <div
+        v-for="(section) in data"
+        :key="section.value.order"
+      >
         <div class="sections">
           <span
             style="width: 24px; display: block; cursor: move;"
@@ -140,12 +135,14 @@
           <div>
             Preguntas:
           </div>
-          <DraggableFormKit
-            :list="section.value.questions"
+          <VueDraggable
+            v-model="section.value.questions"
             handle=".handle-quesion"
-            @update-list="handleUpdateListQuestions($event, section.value)"
           >
-            <template #item="{ item: question }">
+            <div
+              v-for="(question) in section.value.questions"
+              :key="question.value.order"
+            >
               <section class="question">
                 <span
                   style="width: 24px; display: block; cursor: move;"
@@ -155,14 +152,14 @@
                 </span>
                 {{ question.value.name }}
               </section>
-            </template>
-          </DraggableFormKit>
+            </div>
+          </VueDraggable>
           <button @click="handleAddQuestion(section)">
             Agregar preguntas
           </button>
         </div>
-      </template>
-    </DraggableFormKit>
+      </div>
+    </VueDraggable>
 
     <button @click="handleAddSection">
       Agregar nueva seccion
