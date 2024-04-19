@@ -6,68 +6,108 @@
 
   const data = ref([
     {
-      name: 'Section 1',
-      order: 1,
-      questions: [
-        {
-          name: 'Pregunta 1',
-          order: 1
-        },
-        {
-          name: 'Pregunta 2',
-          order: 2
-        },
-        {
-          name: 'Pregunta 3',
-          order: 3
-        },
-      ]
+      key: 1,
+      value: {
+        name: 'Section 1',
+        order: 1,
+        questions: [
+          {
+            key: 1,
+            value: {
+              name: 'Pregunta 1',
+              order: 1
+            }
+          },
+          {
+            key: 2,
+            value: {
+              name: 'Pregunta 2',
+              order: 2
+            }
+          },
+          {
+            key: 3,
+            value: {
+              name: 'Pregunta 3',
+              order: 3
+            }
+          },
+        ]
+
+      }
     },
     {
-      name: 'Section 2',
-      order: 2,
-      questions: [
-        {
-          name: 'Pregunta section 2 - 1',
-          order: 1
-        },
-        {
-          name: 'Pregunta section 2 - 2',
-          order: 2
-        },
-        {
-          name: 'Pregunta section 2 - 3',
-          order: 3
-        },
-      ]
+      key: 2,
+      value: {
+        name: 'Section 2',
+        order: 1,
+        questions: [
+          {
+            key: 1,
+            value: {
+              name: 'Pregunta 21',
+              order: 1
+            }
+          },
+          {
+            key: 2,
+            value: {
+              name: 'Pregunta 22',
+              order: 2
+            }
+          },
+          {
+            key: 3,
+            value: {
+              name: 'Pregunta 23',
+              order: 3
+            }
+          },
+        ]
+      }
     },
   ])
 
   const handleAddSection = () => {
     data.value.push({
-      name: `Section ${data.value.length + 1}`,
-      order: data.value.length + 1,
-      questions: [
-        {
-          name: 'Pregunta 1',
-          order: 1
-        },
-        {
-          name: 'Pregunta 2',
-          order: 2
-        },
-        {
-          name: 'Pregunta 3',
-          order: 3
-        },
-      ]
+      key: data.value.length + 1,
+      value: {
+        name: `Section ${data.value.length + 1}`,
+        order: data.value.length + 1,
+        questions: [
+          {
+            key: 1,
+            value: {
+              name: 'Pregunta 1',
+              order: 1
+            }
+          },
+          {
+            key: 2,
+            value: {
+              name: 'Pregunta 2',
+              order: 2
+            }
+          },
+          {
+            key: 3,
+            value: {
+              name: 'Pregunta 3',
+              order: 3
+            }
+          },
+        ]
+      }
     },)
   }
 
   const handleAddQuestion = (section: any) => {
-    section.questions.push({
-      name: `Pregunta ${section.questions.length + 1}`,
-      order: section.questions.length + 1
+    section.value.questions.push({
+      key: section.value.questions.length + 1,
+      value: {
+        name: `Pregunta ${section.value.questions.length + 1}`,
+        order: section.value.questions.length + 1
+      }
     })
   }
 
@@ -96,14 +136,14 @@
           >
             <DraggIcon />
           </span>
-          {{ section.name }}
+          {{ section.value.name }}
           <div>
             Preguntas:
           </div>
           <DraggableFormKit
-            :list="section.questions"
+            :list="section.value.questions"
             handle=".handle-quesion"
-            @update-list="handleUpdateListQuestions($event, section)"
+            @update-list="handleUpdateListQuestions($event, section.value)"
           >
             <template #item="{ item: question }">
               <section class="question">
@@ -113,7 +153,7 @@
                 >
                   <DraggIcon />
                 </span>
-                {{ question.name }}
+                {{ question.value.name }}
               </section>
             </template>
           </DraggableFormKit>

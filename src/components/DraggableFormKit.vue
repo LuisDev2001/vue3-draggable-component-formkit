@@ -2,10 +2,9 @@
 <script setup lang="ts">
   import { computed, watch } from 'vue'
   import { useDragAndDrop } from '@formkit/drag-and-drop/vue'
-
   interface ListItem {
-    order: number
-    [key: string]: any
+    key: number
+    value: any
   }
 
   const props = defineProps<{
@@ -32,7 +31,7 @@
   <div ref="refElement">
     <div
       v-for="item in listDraggable"
-      :key="item.order"
+      :key="item.value?.order"
     >
       <slot
         name="item"
